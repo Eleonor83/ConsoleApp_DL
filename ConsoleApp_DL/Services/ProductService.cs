@@ -40,8 +40,8 @@ namespace ConsoleApp_DL.Services
 
         public ProductEntity GetProductById(int id)
         {
-            var ProductEntity = _productRepository.Get(x => x.Id == id);
-            return ProductEntity;
+            var productEntity = _productRepository.Get(x => x.Id == id);
+            return productEntity;
         }
 
         public IEnumerable<ProductEntity> GetProducts()
@@ -50,13 +50,13 @@ namespace ConsoleApp_DL.Services
             return products;
         }
 
-        public ProductEntity UpdateProduct(ProductEntity ProductEntity)
+        public ProductEntity UpdateProduct(ProductEntity productEntity)
         {
-            var updatedProductEntity = _productRepository.Update(x => x.Id == ProductEntity.Id, ProductEntity);
+            var updatedProductEntity = _productRepository.Update(x => x.Id == productEntity.Id, productEntity);
             return updatedProductEntity;
         }
 
-        public void DeleteRole(int id)
+        public void DeleteProduct(int id)
         {
             _productRepository.Delete(x => x.Id == id);
         }
