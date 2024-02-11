@@ -31,3 +31,11 @@ var builder = Host.CreateDefaultBuilder().ConfigureServices (services =>
 var consoleUI = builder.Services.GetRequiredService<ConsoleUI>();
 //consoleUI.CreateProduct_UI();
 //consoleUI.GetProducts_UI();
+//consoleUI.UpdateProduct_UI();
+//consoleUI.DeleteProduct_UI();
+
+
+//consoleUI.CreateCustomer_UI();
+//consoleUI.GetCustomer_UI();
+//consoleUI.UpdateCustomer_UI();
+//consoleUI.DeleteCustomer_UI();
