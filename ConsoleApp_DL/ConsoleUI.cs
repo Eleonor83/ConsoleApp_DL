@@ -38,5 +38,43 @@ namespace ConsoleApp_DL
                 Console.ReadKey();
             }
         }
+
+        public void GetProducts_UI()
+        {
+            Console.Clear();
+
+            var products = _productService.GetProducts();
+            foreach (var product in products)
+            {
+                Console.WriteLine($"{product.Title} - {product.Category.CategoryName} ({product.Price} SEK)");
+            }
+
+            Console.ReadKey();
+        }
+
+        public void UpdateProduct_UI()
+        {
+            Console.Clear();
+            Console.Write("Enter Product Id: ");
+            var id = int.Parse(Console.ReadLine()!);
+            var product = _productService.GetProductById(id);
+            if (product != null)
+            {
+                Console.WriteLine($"{product.Title} - {product.Category.CategoryName} ({product.Price} SEK)");
+                Console.WriteLine();
+
+                Console.Write("New Product Title: ");
+                product.Title = Console.ReadLine()!;
+            
+                var newProduct = _productService.UpdateProduct(product);
+                Console.WriteLine($"{product.Title} - {product.Category.CategoryName} ({product.Price} SEK)");
+            }
+            else
+            {
+                Console.WriteLine("No product found. ");
+            }
+
+            Console.ReadKey();
+        }
     }
 }
